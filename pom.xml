@@ -38,6 +38,10 @@
 			<artifactId>quarkus-resteasy</artifactId>
 		</dependency>
 		<dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-resteasy-jackson</artifactId>
+        </dependency>
+		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-smallrye-openapi</artifactId>
 		</dependency>
@@ -97,6 +101,10 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${compiler-plugin.version}</version>
 				<configuration>
+				    <source>11</source>
+                    <target>11</target>
+                    <!-- the parameters=true option is critical so that RESTEasy works fine -->
+                    <parameters>true</parameters>
 					<compilerArgs>
 						<arg>-parameters</arg>
 					</compilerArgs>
