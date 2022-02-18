@@ -27,7 +27,8 @@ public class InterSystemsIRISIdentityColumnSupport extends IdentityColumnSupport
 	@Override
 	public String getIdentityColumnString(int type) throws MappingException {
 		// The keyword used to specify an identity column, if identity column key generation is supported.
-		return "identity";
+		// Fix for panache orm to support hibernate sequence
+		return "IdKey";
 	}
 
 	@Override
