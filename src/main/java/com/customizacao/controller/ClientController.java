@@ -1,6 +1,9 @@
 package com.customizacao.controller;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -18,7 +21,6 @@ import com.customizacao.service.ClientService;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ClientController {
 
-	
 private final ClientService clientService;
 	
 	public ClientController(ClientService clientService) {
@@ -29,6 +31,13 @@ private final ClientService clientService;
 	public Response createClient(@RequestBody Client client) {
 		clientService.create(client);
 		return Response.status(Status.CREATED).entity(client).build();
+	}
+	
+	
+	@GET
+	public Response listAllClients() {
+		List<Client> listClients = clientService.findAll();
+		return Response.status(Status.OK).entity(listClients).build();
 	}
 
 }
