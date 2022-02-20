@@ -10,11 +10,13 @@ public interface ClientService {
 
     Client create(Client client);
 	
-	Client update(Client client);
+    Client update(Long id, Client client);
 	
 	List<Client> findAll();
 	
 	Optional<Client> findOne(Long id);
 	
 	void delete(Long id);
+
+	
 }
